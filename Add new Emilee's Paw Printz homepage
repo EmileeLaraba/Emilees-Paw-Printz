@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emilee's Paw Printz | Custom Pet Memorial Keepsakes</title>
+  <meta
+    name="description"
+    content="Handmade custom pet memorial keepsakes created with love to help keep their memory close, always."
+  />
+  <style>
+    :root {
+      --cream: #f8f3ee;
+      --soft-cream: #fcf9f6;
+      --taupe: #ece2d8;
+      --rose: #d7b8aa;
+      --brown: #7a4c45;
+      --deep-brown: #4c3631;
+      --text: #5f4d47;
+      --muted: #7a6b65;
+      --white: #ffffff;
+      --shadow: 0 12px 35px rgba(76, 54, 49, 0.10);
+      --shadow-hover: 0 16px 40px rgba(76, 54, 49, 0.15);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(252, 249, 246, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(122, 76, 69, 0.08);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 30px;
+      text-decoration: none;
+      color: var(--deep-brown);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brown);
+      font-size: 20px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(rgba(252,249,246,0.30), rgba(252,249,246,0.30)),
+        url("assets/images/assets:images:hero.jpg.jpg") center 68% / cover no-repeat;
+    }
+
+    .hero-card {
+      width: min(760px, 100%);
+      margin: 36px 0;
+      background: rgba(252,249,246,0.74);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 12px;
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      color: var(--deep-brown);
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.02;
+    }
+
+    .hero p {
+      margin: 0 auto 24px;
+      max-width: 600px;
+      color: var(--text);
+      font-size: clamp(20px, 3.2vw, 25px);
+      line-height: 1.5;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 16px 28px;
+      font-size: 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7a4c45, #9b6c60);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(122, 76, 69, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.82);
+      color: var(--brown);
+      border: 1px solid rgba(122, 76, 69, 0.14);
+      box-shadow: none;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+      font-size: clamp(34px, 5vw, 50px);
+      color: var(--deep-brown);
+    }
+
+    .section-heading p {
+      margin: 0 auto;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--soft-cream);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      color: var(--deep-brown);
+      font-size: 30px;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 28px;
+      margin: 12px 0;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .list li::before {
+      content: "♡";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--brown);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: var(--soft-cream);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 14px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--rose);
+      color: var(--deep-brown);
+      font-weight: 700;
+    }
+
+    .step h3 {
+      margin: 0 0 10px;
+      color: var(--deep-brown);
+      font-size: 24px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .products {
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.25));
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-card img {
+      width: 100%;
+      aspect-ratio: 4 / 4.5;
+      object-fit: cover;
+    }
+
+    .product-copy {
+      padding: 22px;
+      text-align: center;
+    }
+
+    .product-copy h3 {
+      margin: 0 0 10px;
+      color: var(--deep-brown);
+      font-size: 26px;
+    }
+
+    .product-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    .storm-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .storm-photo,
+    .storm-copy {
+      background: var(--soft-cream);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .storm-photo {
+      overflow: hidden;
+    }
+
+    .storm-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 4.9;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .storm-copy {
+      padding: 30px;
+    }
+
+    .storm-copy h2 {
+      margin: 0 0 14px;
+      color: var(--deep-brown);
+      font-size: clamp(34px, 5vw, 50px);
+    }
+
+    .storm-copy p {
+      margin: 0 0 14px;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .storm-gallery {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .storm-gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .social-box {
+      background: var(--soft-cream);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .social-box h3 {
+      margin: 0 0 12px;
+      color: var(--deep-brown);
+      font-size: 28px;
+    }
+
+    .social-box p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .video-link {
+      display: inline-block;
+      text-decoration: none;
+      padding: 16px 22px;
+      border-radius: 18px;
+      background: rgba(122, 76, 69, 0.10);
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .cta-band {
+      background: linear-gradient(135deg, #f3e7df, #efe4db);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      margin: 0 0 12px;
+      color: var(--deep-brown);
+      font-size: clamp(34px, 5vw, 52px);
+    }
+
+    .cta-band p {
+      margin: 0 auto 22px;
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 30px 0 45px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .steps,
+      .product-grid,
+      .about-grid,
+      .storm-wrap,
+      .social-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid .card:first-child,
+      .storm-wrap > * {
+        grid-column: span 2;
+      }
+
+      .storm-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .brand {
+        font-size: 26px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .nav-links a {
+        font-size: 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        background-position: center 68%;
+      }
+
+      .hero-card {
+        padding: 30px 18px;
+        margin: 28px 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .steps,
+      .product-grid,
+      .about-grid,
+      .storm-wrap,
+      .social-grid,
+      .storm-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Emilee’s Paw Printz</a>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#memorials">Memorials</a>
+        <a href="#storm">Storm</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">Handmade with love</div>
+          <h1>Keep Their Memory Close, Always</h1>
+          <p>
+            Custom pet memorial keepsakes created with warmth, care, and
+            meaningful details to honor the bond you’ll always carry.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:emileespawprintz@gmail.com">Start Your Memorial</a>
+            <a class="btn btn-secondary" href="#memorials">View Memorial Options</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container about-grid">
+        <div class="card">
+          <h3>Made for memories that matter</h3>
+          <p>
+            Emilee’s Paw Printz creates custom memorial pieces for pet parents who
+            want something deeply personal, comforting, and lasting.
+          </p>
+          <p>
+            Whether you’re honoring a recent loss or creating a keepsake that
+            reflects your pet’s spirit, each piece is handmade with compassion and
+            intention.
+          </p>
+        </div>
+        <div class="card">
+          <h3>What can be included</h3>
+          <ul class="list">
+            <li>Ashes, fur, or hair</li>
+            <li>Soft florals and delicate details</li>
+            <li>Inspired colors and meaningful touches</li>
+            <li>Custom resin designs made just for you</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How it works</h2>
+          <p>
+            A gentle, thoughtful process designed to make creating your memorial
+            feel personal from start to finish.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Share your vision</h3>
+            <p>Send inspiration photos, colors, and the style you’re dreaming of.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Send meaningful elements</h3>
+            <p>Ashes, fur, or hair can be included if you want your piece to hold even deeper meaning.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Handcrafted with care</h3>
+            <p>Each memorial is made by hand with softness, intention, and love in every detail.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Receive your keepsake</h3>
+            <p>You’ll receive a one-of-a-kind memorial created to help keep them close, always.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="memorials" class="products">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Memorial options</h2>
+          <p>
+            Thoughtfully designed keepsakes made to reflect your pet, your story,
+            and the love you still carry.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="memorial-pendant.png" alt="Memorial pendant keepsake">
+            <div class="product-copy">
+              <h3>Memorial Pendants</h3>
+              <p>Wearable keepsakes created to hold your pet’s memory close every single day.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="F36335FC-262B-475F-9832-9D728D0F4D7C.png" alt="Custom paw print keepsake">
+            <div class="product-copy">
+              <h3>Custom Paw Prints</h3>
+              <p>Beautiful handmade paw print memorials created with warmth, care, and personal meaning.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="storm-framed-memorial.jpeg" alt="Framed memorial keepsake">
+            <div class="product-copy">
+              <h3>Framed Tributes</h3>
+              <p>Meaningful display pieces that combine memory, beauty, and one-of-a-kind design.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="storm">
+      <div class="container storm-wrap">
+        <div class="storm-photo">
+          <img src="IMG_4532.jpeg" alt="Storm, the chief paw officer">
+        </div>
+        <div class="storm-copy">
+          <h2>Meet Storm</h2>
+          <p>
+            Storm is the heart behind the heart. He keeps Emilee company while she
+            creates each memorial and brings so much comfort, joy, and love into
+            the process.
+          </p>
+          <p>
+            He’s more than a studio buddy — he’s part of the reason every piece is
+            made with such tenderness and soul.
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="storm-gallery">
+          <img src="assets/images/storm/storm-couch.jpeg" alt="Storm on the couch">
+          <img src="assets/images/storm/storm-patio.jpeg" alt="Storm on the patio">
+          <img src="assets/images/storm/storm-running.jpeg" alt="Storm running">
+          <img src="assets/images/storm/storm-window.jpeg" alt="Storm at the window">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container social-grid">
+        <div class="social-box">
+          <h3>Follow on Facebook</h3>
+          <p>
+            Stay connected for new memorials, behind-the-scenes moments, and updates
+            from Emilee’s Paw Printz.
+          </p>
+          <a class="btn btn-primary" href="https://facebook.com/" target="_blank">Visit Facebook</a>
+        </div>
+
+        <div class="social-box">
+          <h3>Watch the process</h3>
+          <p>
+            See how each memorial is made with patience, intention, and so much love
+            from start to finish.
+          </p>
+          <a class="video-link" href="#" target="_blank">Watch the reel</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Ready to create something meaningful?</h2>
+          <p>
+            If you already have an idea, or just know you want something beautiful
+            and personal, reach out and we’ll create a memorial that feels right
+            for your pet and your heart.
+          </p>
+          <a class="btn btn-primary" href="mailto:emileespawprintz@gmail.com">Email Emilee’s Paw Printz</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Emilee’s Paw Printz • Handcrafted memorial keepsakes made with love
+    </div>
+  </footer>
+
+</body>
+</html>
